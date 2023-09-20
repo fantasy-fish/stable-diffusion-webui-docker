@@ -3,16 +3,18 @@
 declare -A arr
 
 # models
-arr["https://huggingface.co/prompthero/openjourney/resolve/main/mdjrny-v4.safetensors"]="models/Stable-diffusion"
-arr+=(["https://huggingface.co/prompthero/openjourney-v2/resolve/main/openjourney-v2.ckpt"]="models/Stable-diffusion")
-arr+=(["https://huggingface.co/ckpt/anything-v4.5-vae-swapped/resolve/main/anything-v4.5-vae-swapped.safetensors"]="models/Stable-diffusion")
-arr+=(["https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0/resolve/main/dreamlike-photoreal-2.0.safetensors"]="models/Stable-diffusion")
-arr+=(["https://huggingface.co/nuigurumi/basil_mix/resolve/main/Basil_mix_fixed.safetensors"]="models/Stable-diffusion")
-arr+=(["https://huggingface.co/swl-models/chilloutmix-ni/resolve/main/chilloutmix-Ni-ema-fp32.safetensors"]="models/Stable-diffusion")
+# arr["https://huggingface.co/prompthero/openjourney/resolve/main/mdjrny-v4.safetensors"]="models/Stable-diffusion"
+arr["https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/sd_xl_base_1.0.safetensors"]="models/Stable-diffusion"
 # vae
-arr+=(["https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"]="models/VAE")
-# embeddings
-arr+=(["https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors"]="embeddings")
+arr+=(["https://huggingface.co/stabilityai/sdxl-vae/blob/main/sdxl_vae.safetensors"]="models/VAE")
+# controlnet
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/diffusers_xl_canny_full.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/sai_xl_canny_256lora.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/diffusers_xl_depth_full.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/sai_xl_depth_256lora.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/sargezt_xl_depth.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/thibaud_xl_openpose.safetensors"]="extensions/sd-webui-controlnet/models")
+arr+=(["https://huggingface.co/lllyasviel/sd_control_collection/blob/main/thibaud_xl_openpose_256lora.safetensors"]="extensions/sd-webui-controlnet/models")
 
 for key in ${!arr[@]}; do
   mkdir -p "${arr[${key}]}"

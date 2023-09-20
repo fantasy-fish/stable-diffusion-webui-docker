@@ -15,8 +15,8 @@ services:
       dockerfile: ${DOCKERFILE:-Dockerfile}
       args:
         TZ: ${TZ}
-        BUILD_ARGS: --medvram --allow-code --enable-insecure-extension-access --api --listen --port ${PORT} --xformers --exit
-        RUN_ARGS: --medvram --allow-code --enable-insecure-extension-access --api --listen --port ${PORT} --xformers
+        BUILD_ARGS: --medvram --allow-code --enable-insecure-extension-access --api --listen --port ${PORT} --xformers --exit --opt-split-attention --no-half-vae --xformers --opt-sub-quad-attention
+        RUN_ARGS: --medvram --allow-code --enable-insecure-extension-access --api --listen --port ${PORT} --xformers --opt-split-attention --no-half-vae --xformers --opt-sub-quad-attention
         VOLUME: ${VOLUME:-data}
     deploy:
      resources:
